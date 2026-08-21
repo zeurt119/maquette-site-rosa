@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Blog — Photos Noir et Blanc</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-blog">
+
+<header>
+  <a href="index.html" class="wordmark">
+    Photos <em>Noir & Blanc</em>
+  </a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-label="Ouvrir le menu"
+    aria-expanded="false"
+  >
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav>
+    <a href="galerie.html">Galerie</a>
+    <a href="services.html">Services</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="evenement.html">Événements</a>
+    <a href="blog-preview.html" aria-current="page">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <div style="max-width:1500px;margin:18px auto 0;padding:0 5vw;">
+    <div class="mono" style="font-size:.68rem;color:var(--mid);">
+      APERÇU LOCAL — les messages affichés ici sont des exemples.
+    </div>
+  </div>
+
+
+  <section class="blog-hero">
+    <div class="tag mono">Journal / communauté</div>
+
+    <h1>
+      Des mots laissés <em>après les images.</em>
+    </h1>
+
+    <p>
+      Partagez votre expérience, un souvenir, une impression ou quelques mots
+      sur le travail photographique. Chaque message rejoint cette archive collective.
+    </p>
+  </section>
+
+  <section class="blog-layout">
+
+    <aside class="blog-form-wrap">
+
+      <div class="section-label mono">Écrire</div>
+      <h2>Laissez une trace.</h2>
+
+      
+
+      <form action="#" method="get" onsubmit="return false;">
+
+        <div class="blog-field">
+          <label for="username">Votre nom</label>
+
+          <input
+            id="username"
+            type="text"
+            name="username"
+            maxlength="80"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="blog-field">
+          <label for="content">Votre message</label>
+
+          <textarea
+            id="content"
+            name="content"
+            maxlength="3000"
+            placeholder="Écrivez quelques mots…"
+            required
+          ></textarea>
+        </div>
+
+        <button class="blog-submit" type="button">
+          Publier
+        </button>
+
+      </form>
+    </aside>
+
+    <section class="blog-messages">
+
+      <div class="blog-messages-head">
+        <div>
+          <div class="section-label mono">Archives</div>
+          <h2>Messages</h2>
+        </div>
+
+        <span class="blog-count mono">03 messages</span>
+      </div>
+
+      <article class="blog-message">
+        <div class="blog-message-meta">
+          <div class="blog-message-author">Camille</div>
+          <span class="blog-message-number mono">N°01</span>
+        </div>
+        <p>Une très belle approche du noir et blanc. Les images ont quelque chose de calme et d'intemporel. Merci pour ce partage.</p>
+      </article>
+
+      <article class="blog-message">
+        <div class="blog-message-meta">
+          <div class="blog-message-author">Marc</div>
+          <span class="blog-message-number mono">N°02</span>
+        </div>
+        <p>J'ai découvert votre travail lors d'un vernissage. J'aime particulièrement la manière dont vous captez les regards et les détails.</p>
+      </article>
+
+      <article class="blog-message">
+        <div class="blog-message-meta">
+          <div class="blog-message-author">Élodie</div>
+          <span class="blog-message-number mono">N°03</span>
+        </div>
+        <p>Des photographies pleines d'émotion, avec une vraie identité. Hâte de découvrir les prochaines séries.</p>
+      </article>
+
+    </section>
+
+  </section>
+
+</main>
+
+<footer>
+
+  <div class="foot-top">
+
+    <div class="wordmark2">
+      Photos Noir & Blanc
+    </div>
+
+    <div class="foot-links">
+
+      <div>
+        <h4>Navigation</h4>
+        <a href="galerie.html">Galerie</a>
+        <a href="services.html">Services</a>
+        <a href="tarifs.html">Tarifs</a>
+        <a href="evenement.html">Événements</a>
+        <a href="blog.php">Blog</a>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <a
+          href="https://wa.me/41797965654"
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp
+        </a>
+        <a href="contact.html">Formulaire</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="foot-bottom">
+    <span>© 2026 Photos Noir & Blanc</span>
+    <span>Mentions légales</span>
+  </div>
+
+</footer>
+
+<script>
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('header nav');
+
+if (menuToggle && nav) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('active');
+
+    menuToggle.classList.toggle('active', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute(
+      'aria-label',
+      isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
+    );
+
+    document.body.classList.toggle('menu-open', isOpen);
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
+      document.body.classList.remove('menu-open');
+    });
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && nav.classList.contains('active')) {
+      nav.classList.remove('active');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
+      document.body.classList.remove('menu-open');
+      menuToggle.focus();
+    }
+  });
+}
+</script>
+
+</body>
+</html>

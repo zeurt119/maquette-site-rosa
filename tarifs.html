@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarifs — Photos Noir et Blanc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+.page-hero{
+  padding:min(14vw,140px) 5vw 60px;max-width:1500px;margin:0 auto;
+  border-bottom:1px solid var(--line);
+}
+.page-hero .tag{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mid);margin-bottom:20px;}
+.page-hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.2rem,5vw,3.6rem);max-width:16ch;margin-bottom:18px;}
+.page-hero p{color:var(--mid);max-width:52ch;font-size:.98rem;line-height:1.6;}
+
+.pricing{max-width:900px;margin:0 auto;padding:60px 5vw min(14vw,120px);}
+table{width:100%;border-collapse:collapse;}
+th{
+  text-align:left;font-family:'Space Mono',monospace;font-size:.7rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--mid);
+  padding:0 0 16px;border-bottom:1px solid var(--ink);font-weight:400;
+}
+td{padding:22px 0;border-bottom:1px solid var(--line);font-size:.98rem;}
+td:last-child, th:last-child{text-align:right;}
+td.size{font-family:'Fraunces',serif;font-size:1.15rem;}
+td.price{font-family:'Space Mono',monospace;}
+.pricing-note{
+  margin-top:40px;padding-top:30px;border-top:1px solid var(--line);
+  color:var(--mid);font-size:.92rem;line-height:1.7;max-width:60ch;
+}
+.pricing-note strong{color:var(--ink);font-weight:500;}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="wordmark">Photos <em>Noir & Blanc</em></a>
+
+  <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+  </button>
+  <nav>
+    <a href="galerie.html">Galerie</a>
+    <a href="services.html">Services</a>
+    <a href="tarifs.html" aria-current="page">Tarifs</a>
+    <a href="evenement.html">Événements</a>
+    <a href="blog-preview.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="tag mono">Tirages</div>
+  <h1>Un tarif simple, pour toutes les photos de la galerie.</h1>
+  <p>Chaque photo de la galerie est disponible dans les formats ci-dessous. Choisissez votre négatif préféré, puis contactez-moi pour la commande.</p>
+</section>
+
+<section class="pricing">
+  <table>
+    <thead>
+      <tr><th>Format</th><th>Dimensions</th><th>Prix</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="size">Petit</td><td>20 × 30 cm</td><td class="price">82 CHF</td></tr>
+      <tr><td class="size">Moyen</td><td>30 × 45 cm</td><td class="price">92 CHF</td></tr>
+      <tr><td class="size">Grand</td><td>40 × 60 cm</td><td class="price">102 CHF</td></tr>
+      <tr><td class="size">Très grand</td><td>50 × 75 cm</td><td class="price">122 CHF</td></tr>
+    </tbody>
+  </table>
+  <div class="pricing-note">
+    <strong>Comment commander :</strong> parcourez la <a href="galerie.html">galerie</a>, notez le numéro du négatif qui vous plaît (ex. N°12), et écrivez-moi sur WhatsApp ou via le <a href="contact.html">formulaire de contact</a> en précisant le numéro et le format souhaités. Les tirages sont réalisés sur papier fine art et expédiés sous 5 à 10 jours ouvrés.
+  </div>
+</section>
+
+<footer>
+  <div class="foot-top">
+    <div class="wordmark2">Photos Noir & Blanc</div>
+    <div class="foot-links">
+      <div>
+        <h4>Navigation</h4>
+        <a href="#">Galerie</a>
+        <a href="#">Services</a>
+        <a href="#">Tarifs</a>
+        <a href="#">Événements</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="#">WhatsApp</a>
+        <a href="#">Formulaire</a>
+        <a href="#">Fribourg, Suisse</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Photos Noir & Blanc</span>
+    <span>Mentions légales</span>
+  </div>
+</footer>
+
+
+<script>
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('header nav');
+
+if (menuToggle && nav) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('active');
+
+    menuToggle.classList.toggle('active', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute(
+      'aria-label',
+      isOpen ? 'Fermer le menu' : 'Ouvrir le menu'
+    );
+
+    document.body.classList.toggle('menu-open', isOpen);
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
+      document.body.classList.remove('menu-open');
+    });
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && nav.classList.contains('active')) {
+      nav.classList.remove('active');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
+      document.body.classList.remove('menu-open');
+      menuToggle.focus();
+    }
+  });
+}
+</script>
+
+</body>
+</html>
