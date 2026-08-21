@@ -45,7 +45,12 @@
 
     <div class="events-head">
       <h2>À venir</h2>
-      <span class="mono">Agenda / 2026</span>
+      <span class="mono">Agenda / <span id="currentYear"></span></span>
+
+      <script>
+        document.getElementById("currentYear").textContent =
+          new Date().getFullYear();
+      </script>
     </div>
 
     <article class="event-row">
